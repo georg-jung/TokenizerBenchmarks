@@ -34,6 +34,18 @@ public class Pretokenization
     }
 
     [Benchmark]
+    public void RefStructEnumeratorNoAggrInlining()
+    {
+        foreach (var input in _corpus)
+        {
+            foreach (var pivot in new PreTokenizingEnumeratorNoAggrInlining(input, false, System.Text.NormalizationForm.FormD))
+            {
+                var x = pivot.Segment;
+            }
+        }
+    }
+
+    [Benchmark]
     public void RegexPublicMlNetNuget()
     {
         var ws = new Microsoft.ML.Tokenizers.WhiteSpace();
