@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>net8.0;net6.0;net481</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.12" />
+    <PackageReference Include="Microsoft.ML.Tokenizers" Version="0.21.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../data/wiki-simple.json.br">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>data/wiki-simple.json.br</Link>
+    </None>
+    <None Include="../../data/wiki-simple.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <Link>data/wiki-simple.json</Link>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../MultiTargetLib/MultiTargetLib.csproj" />
+  </ItemGroup>
+
+</Project>
